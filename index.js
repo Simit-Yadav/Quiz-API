@@ -13,8 +13,9 @@ let PORT = process.env.PORT || 8080;
 
 app.use(express.json());
 app.use(express.urlencoded({extended: true}))
-app.use(function(res,res,next){
+app.use(function(req,res,next){
 	res.header("Access-Control-Allow-Origin", "*");
+	next();
 })
 app.use("/api/v1/questions",quiz)
 
