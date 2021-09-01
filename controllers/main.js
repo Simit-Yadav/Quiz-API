@@ -35,9 +35,8 @@ const getOneLanguage = async (req,res) => {
 const createQuestion =  async (req,res) => {
 	// const {language,question,option1,option2,option3,option4,correct,credit} = req.body;
 	console.log(req.body);
-	const data = JSON.parse(req.body);
 	try{
-		const final = await questionModal.create(data);
+		const final = await questionModal.create(req.body);
 		res.status(200).json({msg: 'updated successful'});
 	}catch(err){
 		console.log('something went wrong: ' + err);
